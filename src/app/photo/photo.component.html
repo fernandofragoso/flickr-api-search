@@ -1,0 +1,12 @@
+<div class="card bg-light mb-3" style="max-width: 18rem;">
+    <div class="card-header"><i class="fas fa-tag"></i> <strong>{{photo.tag}}</strong></div>
+    <div class="photo-gap">
+      <img class="card-img-top" src={{photo.url_q}} alt="Photo">
+    </div>
+    <div class="card-body">
+      <p class="card-text"><i class="fas fa-user"></i> {{photo.ownername}}</p>
+      <p class="card-text"><i class="fas fa-camera"></i> {{photo.datetaken | date}}</p>
+      <p class="card-text"><i class="fas fa-cloud-upload-alt"></i> {{photo.dateupload | date}}</p>
+      <p class="card-text"><i class="fas fa-eye"></i> {{photo.views}}</p>
+    </div>
+  </div>

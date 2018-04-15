@@ -1,0 +1,10 @@
+<div *ngIf="error" class="alert alert-danger floating-alert" role="alert">
+  {{error}}
+</div>
+
+<div>
+  <app-search-form (onSearch)="searchPhoto($event)"></app-search-form>
+  <div *ngIf="photos" class="photo-gallery">
+      <app-photo *ngFor="let photo of photos" [photo]="photo"></app-photo>
+  </div>
+</div>
