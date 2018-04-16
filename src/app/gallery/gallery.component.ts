@@ -16,30 +16,33 @@ export class GalleryComponent implements OnInit {
 
   ngOnInit() {
     this.tag = this.route.snapshot.paramMap.get('tag');
+    this.getPhotos(this.tag, this.page)
+  }
 
-    this.flickrService.getAllPhotos(this.tag, this.page).subscribe(photos => {
-      // debugger;
+  getPhotos(tag, page) {
+    this.isLoading = true;
+    this.flickrService.getAllPhotos(tag, page.toString()).subscribe(photos => {
+      this.totalPages = photos.pages;
       this.photos = photos.photo;
-      // if (photo !== undefined) {
-      //   photo.tag = this.tag;
-      //   this.photos.unshift(photo);
-      // } else {
-      //   //this.showError("Sorry, the photo couldn't be found.");
-      // }
       this.isLoading = false;
     }, err => {
-      // this.showError("Sorry, the photo couldn't be found.");
       this.isLoading = false;
     });
   }
 
   tag = ""
-  page = "1"
+  page = 1
+  totalPages = 0
   photos = []
   isLoading = true
 
   hasPhotos() {
     return (this.photos.length !== 0);
+  }
+
+  goToPage(page) {
+    this.getPhotos(this.tag, page);
+    this.page = page
   }
 
 }
