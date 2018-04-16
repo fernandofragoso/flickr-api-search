@@ -18,3 +18,7 @@
 .photo-gap {
   height: 286px;
 }
+
+.cursor--pointer {
+  cursor: pointer;
+}

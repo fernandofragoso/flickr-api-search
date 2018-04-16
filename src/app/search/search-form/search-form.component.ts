@@ -9,18 +9,27 @@ export class SearchFormComponent implements OnInit {
 
   constructor() { }
 
+  tagValue = ""
+  userValue = ""
+
   ngOnInit() {
   }
 
   @Output() onSearch = new EventEmitter();
 
   search(tag, userId) {
-    this.onSearch.emit({ tag: tag, userId: userId });
-    this.cancel();
+    if (!this.isFormInvalid()) {
+      this.onSearch.emit({ tag: tag, userId: userId });
+      this.cancel();
+    }
   }
 
   cancel() {
-    tagSearch.value = "";
-    userSearch.value = "";
+    this.tagValue = "";
+    this.userValue = "";
+  }
+
+  isFormInvalid() {
+    return (this.tagValue === "");
   }
 }

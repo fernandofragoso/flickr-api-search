@@ -19,9 +19,11 @@ export class FlickrService {
     return this.http.get(url).map(res => res.json()).map(photos => photos.photos.photo[0]);
   }
 
-  getAllPhotos(tag, userId) {
-    let response = this.http.get(this.base_url).map(res => res.json()).map(photos => photos.photos);
-    return response;
+  getAllPhotos(tag, page, userId = "") {
+    let params = `&sort=interestingness-desc&per_page=100&extras=url_q`;
+    let url = `${this.base_url}${params}&tags=${tag}&user_id=${userId}&page=${page}`;
+
+    return this.http.get(url).map(res => res.json()).map(photos => photos.photos);
   }
 
 }

@@ -3,15 +3,26 @@
   <form>
     <div class="form-group">
       <label for="tagSearch">Tags</label>
-      <input #inputTag type="text" (keyup.enter)="search(inputTag.value, inputUser.value)" class="form-control" id="tagSearch" placeholder="Enter comma separated tags">
+      <input #inputTag type="text" 
+        (keyup.enter)="search(inputTag.value, inputUser.value)" 
+        class="form-control" 
+        [(ngModel)]="tagValue" 
+        name="tagSearch" 
+        placeholder="Enter tag">
     </div>
     <div class="form-group">
       <label for="userSearch">User ID</label>
-      <input #inputUser type="text"(keyup.enter)="search(inputTag.value, inputUser.value)" class="form-control" id="userSearch" placeholder="Enter User ID (optional)">
+      <input #inputUser type="text" 
+        (keyup.enter)="search(inputTag.value, inputUser.value)" 
+        class="form-control" 
+        [(ngModel)]="userValue" 
+        name="userSearch" 
+        placeholder="Enter user ID (optional)">
     </div>
     <div class="search-buttons">
-      <button (click)="search(inputTag.value, inputUser.value)" type="button" class="btn btn-primary">Search</button>
-      <button (click)="cancel()" type="button" class="btn btn-secondary">Cancel</button>
+      <button type="button" (click)="search(inputTag.value, inputUser.value)" class="btn btn-primary" 
+        [disabled]="isFormInvalid()" [class.disabled]="isFormInvalid()">Search</button>
+      <button type="button" (click)="cancel()" class="btn btn-secondary">Cancel</button>
     </div>
   </form>
 </div>

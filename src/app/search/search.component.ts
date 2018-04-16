@@ -43,4 +43,7 @@ export class SearchComponent implements OnInit {
     }, 2000);
   }
 
+  hasPhotos() {
+    return (this.photos.length > 0);
+  }
 }
