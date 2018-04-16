@@ -16,8 +16,12 @@ export class PhotoComponent implements OnInit {
   @Input() photo;
   @Input() complete = true;
 
-  goToGallery(tag) {
-    this.router.navigate([`/gallery/`, tag]);
+  goToGallery(tag, userid) {
+    if (userid) {
+      this.router.navigate([`/gallery/`, tag, userid]);
+    } else {
+      this.router.navigate([`/gallery/`, tag]);
+    }
   }
 
 }

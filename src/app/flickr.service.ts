@@ -20,7 +20,8 @@ export class FlickrService {
   }
 
   getAllPhotos(tag, page, userId = "") {
-    let params = `&sort=interestingness-desc&per_page=100&extras=url_q`;
+    console.log(userId);
+    let params = `&sort=interestingness-desc&per_page=100&extras=url_q%2Cowner_name`;
     let url = `${this.base_url}${params}&tags=${tag}&user_id=${userId}&page=${page}`;
 
     return this.http.get(url).map(res => res.json()).map(photos => photos.photos);

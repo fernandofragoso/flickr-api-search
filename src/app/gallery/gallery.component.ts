@@ -16,12 +16,18 @@ export class GalleryComponent implements OnInit {
 
   ngOnInit() {
     this.tag = this.route.snapshot.paramMap.get('tag');
-    this.getPhotos(this.tag, this.page)
+    this.userId = this.route.snapshot.paramMap.get('userId');
+    this.getPhotos(this.tag, "1", this.userId);
   }
 
-  getPhotos(tag, page) {
+  getPhotos(tag, page, userId) {
     this.isLoading = true;
-    this.flickrService.getAllPhotos(tag, page.toString()).subscribe(photos => {
+
+    if (!userId) {
+      userId="";
+    }
+
+    this.flickrService.getAllPhotos(tag, page.toString(), userId).subscribe(photos => {
       this.totalPages = photos.pages;
       this.photos = photos.photo;
       this.isLoading = false;
@@ -31,6 +37,7 @@ export class GalleryComponent implements OnInit {
   }
 
   tag = ""
+  userId = ""
   page = 1
   totalPages = 0
   photos = []
@@ -41,8 +48,15 @@ export class GalleryComponent implements OnInit {
   }
 
   goToPage(page) {
-    this.getPhotos(this.tag, page);
+    this.getPhotos(this.tag, page, this.userId);
     this.page = page
+  }
+
+  getOwnerName() {
+    if (this.userId && this.hasPhotos()) {
+      return this.photos[0].ownername;
+    } 
+    return null;
   }
 
 }

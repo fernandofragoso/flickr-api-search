@@ -26,6 +26,9 @@ export class SearchComponent implements OnInit {
     this.flickrService.getPhoto(tag, userId).subscribe(photo => {
       if (photo !== undefined) {
         photo.tag = tag;
+        if(userId !== "") {
+          photo.userId = userId;
+        }
         this.photos.unshift(photo);
       } else {
         this.showError("Sorry, the photo couldn't be found.");

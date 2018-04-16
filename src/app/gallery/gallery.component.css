@@ -6,3 +6,11 @@
   display: flex;
   justify-content: space-between;
 }
+
+.gallery-title {
+  display: flex;
+}
+
+.owner-title {
+  margin-left: 20px;
+}

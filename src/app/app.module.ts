@@ -11,6 +11,7 @@ import { SearchComponent } from './search/search.component';
 import { FlickrService } from './flickr.service';
 import { PhotoComponent } from './photo/photo.component';
 import { GalleryComponent } from './gallery/gallery.component';
+import { PaginationComponent } from './gallery/pagination/pagination.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { GalleryComponent } from './gallery/gallery.component';
     SearchFormComponent,
     SearchComponent,
     PhotoComponent,
-    GalleryComponent
+    GalleryComponent,
+    PaginationComponent
   ],
   imports: [
     BrowserModule,
@@ -32,6 +34,10 @@ import { GalleryComponent } from './gallery/gallery.component';
       },
       {
         path: 'gallery/:tag',
+        component: GalleryComponent
+      },
+      {
+        path: 'gallery/:tag/:userId',
         component: GalleryComponent
       }
     ])

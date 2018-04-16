@@ -1,9 +1,0 @@
-.photo-gallery {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.photo-gallery__loading {
-  text-align: center;
-  margin-top: -100px;
-}
