@@ -20,7 +20,7 @@
         placeholder="Enter user ID (optional)">
     </div>
     <div class="search-buttons">
-      <button type="button" (click)="search(inputTag.value, inputUser.value)" class="btn btn-primary" 
+      <button id="search-button" type="button" (click)="search(inputTag.value, inputUser.value)" class="btn btn-primary" 
         [disabled]="isFormInvalid()" [class.disabled]="isFormInvalid()">Search</button>
       <button type="button" (click)="cancel()" class="btn btn-secondary">Cancel</button>
     </div>

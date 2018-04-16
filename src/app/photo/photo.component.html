@@ -1,4 +1,4 @@
-<div *ngIf="complete" (click)="goToGallery(photo.tag, photo.userId)" class="card bg-light mb-3 cursor--pointer" style="max-width: 18rem;">
+<div *ngIf="complete" id="complete-card" (click)="goToGallery(photo.tag, photo.userId)" class="card bg-light mb-3 cursor--pointer" style="max-width: 18rem;">
     <div class="card-header"><i class="fas fa-tag"></i> <strong>{{photo.tag}}</strong></div>
     <div class="photo-gap">
       <img class="card-img-top" src={{photo.url_q}} alt="Photo">
@@ -11,7 +11,7 @@
     </div>
 </div>
 
-<div *ngIf="!complete" class="card bg-light mb-3" style="max-width: 18rem;">
+<div *ngIf="!complete" id="simple-card" class="card bg-light mb-3" style="max-width: 18rem;">
     <div class="photo-gap">
       <img class="card-img-top" src={{photo.url_q}} alt="Photo">
     </div>

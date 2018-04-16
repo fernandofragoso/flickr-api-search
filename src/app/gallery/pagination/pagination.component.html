@@ -1,7 +1,7 @@
 <div class="pagination-buttons">
-  <button type="button" (click)="goToPage(1)" [disabled]="page===1" class="btn btn-secondary"><i class="fas fa-angle-double-left"></i></button>
-  <button type="button" (click)="goToPage(page-1)" [disabled]="page===1" class="btn btn-secondary"><i class="fas fa-angle-left"></i></button>
-  <button type="button" class="btn btn-primary" disabled='disabled'>{{page}}</button>
-  <button type="button" (click)="goToPage(page+1)" [disabled]="page===totalPages" class="btn btn-secondary"><i class="fas fa-angle-right"></i></button>
-  <button type="button" (click)="goToPage(totalPages)" [disabled]="page===totalPages" class="btn btn-secondary"><i class="fas fa-angle-double-right"></i></button>
+  <button type="button" id="first-button" (click)="goToPage(1)" [disabled]="page===1" class="btn btn-secondary"><i class="fas fa-angle-double-left"></i></button>
+  <button type="button" id="previous-button" (click)="goToPage(page-1)" [disabled]="page===1" class="btn btn-secondary"><i class="fas fa-angle-left"></i></button>
+  <button type="button" id="page-number" class="btn btn-primary" disabled='disabled'>{{page}}</button>
+  <button type="button" id="next-button" (click)="goToPage(page+1)" [disabled]="page===totalPages" class="btn btn-secondary"><i class="fas fa-angle-right"></i></button>
+  <button type="button" id="last-button" (click)="goToPage(totalPages)" [disabled]="page===totalPages" class="btn btn-secondary"><i class="fas fa-angle-double-right"></i></button>
 </div>
